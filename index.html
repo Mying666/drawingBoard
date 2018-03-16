@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+        body{
+            margin: 0;
+            overflow: hidden;
+        }
+        .box{
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+        }
+	</style>
+</head>
+<body>
+	<input type="color" id="color" value="#ffffff">
+	<input type="number" min="1" step="0.1" id="lineWidth" value="1">
+	<button id="line">线条</button>
+	<button id="circle">圆</button>
+	<button id="rect">矩形</button>
+	<button id="eraser">橡皮擦</button>
+	<div class="box"></div>
+    <script src="createjs/easeljs-1.0.0.min.js"></script>
+    <script src="createjs/TweenMax.js"></script>
+	<script src="js/draw.js"></script>
+	<script>
+		let box = document.querySelector('.box')
+		let demo = new Demo({
+			dom: box
+		})
+	</script>
+</body>
+</html>
