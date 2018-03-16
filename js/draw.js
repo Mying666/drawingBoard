@@ -57,7 +57,8 @@ class Demo {
                 .setStrokeStyle(me.lineWidth, 'round').beginStroke(me.color)
                 .rect(this.startPoint.x, this.startPoint.y, changeX, changeY)
             } else if (me.graphicsType === 'eraser') {
-                this.newEraser.graphics.beginFill('#000').rect(e.offsetX, e.offsetY, 10, 10)
+                let eraserWidth = Math.max(me.lineWidth, 10)
+                this.newEraser.graphics.beginFill('#000').rect(e.offsetX, e.offsetY, eraserWidth, eraserWidth)
             }
         }
         this.dom.addEventListener('mousedown', e => {
@@ -70,7 +71,9 @@ class Demo {
                 me.newCircle = new createjs.Shape()
                 me.stage.addChild(me.newCircle)
             } else if (me.graphicsType === 'line') {
-                this.shape.graphics.setStrokeStyle(me.lineWidth, 'round').beginStroke(me.color).mt(e.offsetX, e.offsetY)
+                me.shape = new createjs.Shape()
+                me.stage.addChild(me.shape)
+                me.shape.graphics.setStrokeStyle(me.lineWidth, 'round').beginStroke(me.color).mt(e.offsetX, e.offsetY)
             } else if (me.graphicsType === 'rect') {
                 me.newRect = new createjs.Shape()
                 me.stage.addChild(me.newRect)
